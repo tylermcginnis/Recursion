@@ -4,6 +4,20 @@
 // };
 
 // But in stead we're going to implement it from scratch:
-var getElementsByClassName = function (className) {
-  // your code here
-};
+
+function getElementsByClassName(searchClass) {
+    var elements = document.getElementsByTagName('*');
+        var elementsArray = new Array();
+        for (i=0; i < elements.length; i++) {
+            if (elements[i].getAttribute('class')) {
+                elementsClass = elements[i].getAttribute('class').split(' ');
+                for (j=0; j < elementsClass.length; j++) {
+                    if (elementsClass[j].toLowerCase() == searchClass.toLowerCase()) {
+                        elementsArray.push(elements[i]);
+                    }
+                }
+            } 
+
+        }
+        return elementsArray;
+}
